@@ -13,6 +13,7 @@ I focus on building practical applications and strengthening core problem-solvin
 
 ## Technical Interests
 
+- Cybersecurity
 - Software Development
 - Object-Oriented Design
 - Web Development
