@@ -3,208 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <title>Dahoomy — CS Student & Developer</title>
+
+    <!-- Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-    <!-- navigation menu -->
     <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                <span>Dahoomy</span>
-            </div>
-            <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="#home">Home</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="#about">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="#skills">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="#services">Services</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#contact">Contact</a></div>
-            </div>
-            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-         </div>
-        <div class="dropdown">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-            <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-        </div>
+        <a href="#home" class="nav-logo">
+            dahoomy<span>// frostbyte</span>
+        </a>
+        <ul>
+            <li><a href="#about">about</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#services">services</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
     </nav>
-    <section id="home">
-        <div class="main-container">
-            <div class="image" data-aos="zoom-out" data-aos-duration="3000">
-                <img src="main.jpg" alt="PFP of Dahoomy">
+
+    <!-- HERO -->
+    <div id="home">
+
+        <!-- Left side: all the text content-->
+        <div class="hero-content">
+
+            <!-- Small label above the name-->
+            <div class="hero-tag">Available for hire</div>
+
+            <!-- name split across two lines-->
+            <h1 class="hero-name">
+                Abdul<span class="accent">rahman</span><br>Bakhit
+            </h1>
+
+            <!-- Typewriter line -->
+            <div class="hero-alias" id="alias">
+                <span class="prompt">~$</span> whoami → CS student · developer · homelab operator
             </div>
-            <div class="content">
-                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Hey I'm <span>Dahoomy</span></h1>
-                <div class="typewriter" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="800">I'm a <span class="typewriter-text"></span><label for="">|</label></div>
-                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">I'm a Computer Science student and developer who loves building real projects, breaking things,
-                    and then fixing them better than before. I enjoy working with Python, Java, and web technologies,
-                    and I'm always experimenting with new ideas, from automation tools to full-stack apps and game-related
-                    projects.</p>
-                <div class="social-links">
-                    <a href="https://github.com/mcdahoomy" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://x.com/dahoomy890" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="mailto:dahop47@gmail.com" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-solid fa-envelope"></i></a>
+
+            <!-- Short bio -->
+            <p class="hero-desc">
+                I build <em>real things</em> — CLI tools, web apps, self-hosted infrastructure.
+                Studying at Qatar University, and exploring <em>cybersecurity</em>.
+                I break systems to understand them, then build them better
+            </p>
+
+            <!-- Two buttons -->
+             <div class="hero-actions">
+                <a href="#projects" class="btn-primary">View Projects ↓</a>
+                <a href="https://github.com/mcdahoomy" target="_blank" class="btn-outline">GitHub ↗</a>
+             </div>
+
+        </div>
+
+        <!-- Right side: fake terminal widget -->
+        <div class="hero-terminal">
+
+            <!-- The three dots + title bar at the top -->
+            <div class="t-bar">
+                <span class="dot dot-r"></span>
+                <span class="dot dot-y"></span>
+                <span class="dot dot-g"></span>
+                <span class="t-title">dahoomy@frostbyte ~</span>
+            </div>
+
+            <!-- Terminal output lines -->
+            <div class="t-body">
+                <div class="t-line"><span class="t-p">$</span><span class="t-c">cat profile.json</span></div>
+                <div class="t-gap"></div>
+                <div class="t-line"><span class="t-o">{</span></div>
+                <div class="t-line"><span class="t-o hi">&nbsp; "name": "Dahoomy",</span></div>
+                <div class="t-line"><span class="t-o hi">&nbsp; "alias": "Frostbyte",</span></div>
+                <div class="t-line"><span class="t-o hi">&nbsp; "stack": ["Python","Java","JS"],</span></div>
+                <div class="t-line"><span class="t-o hi">&nbsp; "focus": "cybersecurity",</span></div>
+                <div class="t-line"><span class="t-o hi">&nbsp; "lab": "Proxmox + Docker",</span></div>
+                <div class="t-line"><span class="t-o hi">&nbsp; "status": "available"</span></div>
+                <div class="t-line"><span class="t-o">}</span></div>
+                <div class="t-gap"></div>
+                <div class="t-line"><span class="t-p">$</span><span class="t-c">ls ./projects/</span></div>
+                <div class="t-gap"></div>
+                <div class="t-line"><span class="t-o hi">VaultJ &nbsp;PriceScout &nbsp;TaskHub &nbsp;FoodScanr</span></div>
+                <div class="t-gap"></div>
+                <!-- Blinking cursor -->
+                <div class="t-line"><span class="t-p">$</span><span class="t-c"><span class="cursor"></span></span></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ABOUT -->
+    <div class="wrap ruled" id="about">
+
+        <!-- Section label + title -->
+        <div class="sec-label">01 / about</div>
+        <h2 class="sec-title">Who's behind the keyboard</h2>
+
+        <!-- Two column grid -->
+        <div class="about-grid">
+
+            <!-- LEFT: bio + stats -->
+            <div class="about-text fu">
+                <p>I'm a Computer Science student at <em>Qatar University</em> (graduating 2028–2029), spending most of my time writing code, building infrastructure, and experimenting with systems I probably shouldn't touch.</p>
+                <p>My homelab — codenamed <em>Frostbyte</em> — runs Proxmox, TrueNAS, Ubuntu VMs, Docker, Pi-hole, Nginx, CrowdSec, Grafana, and a Tailscale mesh. It's where I learn by doing.</p>
+                <p>I'm actively moving toward <em>cybersecurity</em> — I care about how systems fail, how authentication breaks, and how to build things that hold up under pressure.</p>
+
+                <!-- stat boxes in a 2x2 grid -->
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-num">4+</div>
+                        <div class="stat-lbl">years coding</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">8+</div>
+                        <div class="stat-lbl">projects shipped</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">QU</div>
+                        <div class="stat-lbl">Qatar University</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">∞</div>
+                        <div class="stat-lbl">homelab uptime attempts</div>
+                    </div>
                 </div>
-                <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
-                    <button onclick="location.href='#contact'">Hire me</button>
+            </div>
+            
+            <!-- RIGHT: skills panel -->
+            <div class="skills-panel fu">
+
+                <div class="sk-group">
+                    <div class="sk-label">Languages</div>
+                    <div class="sk-tags">
+                        <span class="sk-tag">Python</span>
+                        <span class="sk-tag">Java</span>
+                        <span class="sk-tag">JavaScript</span>
+                        <span class="sk-tag">HTML / CSS</span>
+                        <span class="sk-tag">Bash</span>
+                    </div>
                 </div>
+
+                <div class="sk-group">
+                    <div class="sk-label">Tools & Frameworks</div>
+                    <div class="sk-tags">
+                        <span class="sk-tag">IntelliJ IDEA</span>
+                        <span class="sk-tag">Git / GitHub</span>
+                        <span class="sk-tag">Tkinter</span>
+                        <span class="sk-tag">Selenium</span>
+                    </div>
+                </div>
+
+                <div class="sk-group">
+                    <div class="sk-label">Infrastructure</div>
+                    <div class="sk-tags">
+                        <span class="sk-tag">Linux</span>
+                        <span class="sk-tag">Docker</span>
+                        <span class="sk-tag">Proxmox</span>
+                        <span class="sk-tag">TrueNAS</span>
+                        <span class="sk-tag">Nginx</span>
+                        <span class="sk-tag">Tailscale</span>
+                        <span class="sk-tag">Pi-hole</span>
+                        <span class="sk-tag">Garfana</span>
+                        <span class="sk-tag">CrowdSec</span>
+                    </div>
+                </div>
+
+                <div class="sk-group">
+                    <div class="sk-label">Concepts</div>
+                    <div class="sk-tags">
+                        <span class="sk-tag">OOP</span>
+                        <span class="sk-tag">Data Structures</span>
+                        <span class="sk-tag">AES-256 / bcrypt</span>
+                        <span class="sk-tag">REST APIs</span>
+                        <span class="sk-tag">Web Scraping</span>
+                        <span class="sk-tag">Networking</span>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- About Section Start -->
-    <section class="about" id="about">
-        <div class="content">
-            <div class="title" data-aos="fade-up" data-aos-duration="1500"><span>About Me</span></div>
-            <div class="about-details">
-                <div class="left" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">
-                    <img src="main.jpg" alt="PFP of Dahoomy">
+    <!-- PROJECTS -->
+    <div class="wrap ruled" id="projects">
+
+        <div class="sec-label">02 / projects</div>
+        <h2 class="sec-title">Things I've built</h2>
+        
+        <div class="proj-grid">
+
+            <a class="proj-card fu" href="https://github.com/mcdahoomy/VaultJ" target="_blank">
+                <div class="p-num">01</div>
+                <div class="p-name">VaultJ</div>
+                <div class="p-desc">CLI password manager with AES-256 CBC encryption, bcrypt hashing, and PBKDF2 key derivation. Built in Java 21 with Maven.</div>
+                <div class="p-tags">
+                    <span class="tag">Java 21</span>
+                    <span class="tag">AES-256</span>
+                    <span class="tag">bcrypt</span>
+                    <span class="tag">Maven</span>
+                    <span class="tag">CLI</span>
                 </div>
-                <div class="right">
-                    <div class="topic" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="200">Coding & Problem Solving Are My Passion</div>
-                    <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="300">
-                        I'm currently studying Computer Science and spending a huge part of my time writing code,
-                        debugging, and learning how real systems are built. I enjoy turning ideas into working
-                        applications, whether it's a university project, a personal experiment, or something useful
-                        for my setup at home. I care about clean, understandable code and I'm always trying to level up
-                        my skills in software design, algorithms, and practical development.
-                    </p>
-                    <div class="button" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-delay="400">
-                        <button id="download-cv-btn">Download CV</button>
-                    </div>
+                <div class="p-foot">
+                    <span class="p-link">github.com/mcdahoomy/VaultJ</span>
+                    <span class="p-arrow">↗</span>
                 </div>
-            </div>
+            </a>
+
+            <a class="proj-card fu" href="https://github.com/mcdahoomy" target="_blank">
+                <div class="p-num">02</div>
+                <div class="p-name">PriceScout QA</div>
+                <div class="p-desc">Qatar price comparison desktop app. Selenium scrapes JS-rendered storefronts, with full OOP design (inheritance, encapsulation, polymorphism), Tkinter GUI, and PyInstaller packaging.</div>
+                <div class="p-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Selenium</span>
+                    <span class="tag">Tkinter</span>
+                    <span class="tag">OOP</span>
+                    <span class="tag">PyInstaller</span>
+                </div>
+                <div class="p-foot">
+                    <span class="p-link">Private repo</span>
+                    <span class="p-arrow">↗</span>
+                </div>
+            </a>
+
+            <a class="proj-card fu" href="https://mcdahoomy.github.io/TaskHub" target="_blank">
+                <div class="p-num">03</div>
+                <div class="p-name">TaskHub</div>
+                <div class="p-desc">To-do web app in vanilla JavaScript. Clean frontend state management, DOM manipulation, and UX patterns — an early project that started the GitHub portfolio.</div>
+                <div class="p-tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">HTML / CSS</span>
+                    <span class="tag">DOM</span>
+                </div>
+                <div class="p-foot">
+                    <span class="p-link">github.com/mcdahoomy/TaskHub</span>
+                    <span class="p-arrow">↗</span>
+                </div>
+            </a>
+
+            <a class="proj-card fu" href="https://github.com/mcdahoomy/food-scanr" target="_blank">
+                <div class="p-num">04</div>
+                <div class="p-name">FoodScanr</div>
+                <div class="p-desc">Android nutrition scanner in Kotlin. Point at a barcode, get full nutritional data back — end-to-end mobile project with REST API integration an barcode parsing.</div>
+                <div class="p-tags">
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">Android</span>
+                    <span class="tag">Barcode API</span>
+                    <span class="tag">REST API</span>
+                </div>
+                <div class="p-foot">
+                    <span class="p-link">github.com/mcdahoomy/FoodScanr</span>
+                    <span class="p-arrow">↗</span>
+                </div>
+            </a>
+
+            <a class="proj-card fu" href="https://github.com/mcdahoomy/File-Manager" target="_blank">
+                <div class="p-num">05</div>
+                <div class="p-name">Python File Manager</div>
+                <div class="p-desc">File management utility driven by YAML configuration. Automates organization, renaming, and filtering — no hardcoded logic, fully config-driven.</div>
+                <div class="p-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">YAML</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">CLI</span>
+                </div>
+                <div class="p-foot">
+                    <span class="p-link">github.com/mcdahoomy/File-Manager</span>
+                    <span class="p-arrow">↗</span>
+                </div>
+            </a>
+
+            <a class="proj-card fu" href="https://mcdahoomy.github.io/portfolio" target="_blank">
+                <div class="p-num">06</div>
+                <div class="p-name">This Portfolio</div>
+                <div class="p-desc">Hand-coded from scratch — dark terminal aesthetic, JetBrains Mono + Syne, scanline texture, typewriter animation, and scroll-triggered reveals. Hosted on GitHub Pages.</div>
+                <div class="p-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">GitHub Pages</span>
+                </div>
+                <div class="p-foot">
+                    <span class="p-link">mcdahoomy.github.io/portfolio</span>
+                    <span class="p-arrow">↗</span>
+                </div>
+            </a>
+
+            <a class="proj-card fu" href="https://github.com/mcdahoomy" target="_blank">
+                <div class="p-num">07</div>
+                <div class="p-name">Fabric Minecraft Server</div>
+                <div class="p-desc">Self-hosted modded Minecraft server on Fabric. Custom mod configs, performance tuning, and port forwarding.</div>
+                <div class="p-tags">
+                    <span class="tag">Fabric</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">Networking</span>
+                    <span class="tag">Self-hosted</span>
+                </div>
+                <div class="p-foot">
+                    <span class="p-link">Self-hosted</span>
+                    <span class="p-arrow">↗</span>
+                </div>
+            </a>
+
+            <a class="proj-card fu" href="https://github.com/mcdahoomy" target="_blank">
+                <div class="p-num">08</div>
+                <div class="p-name">Frostbyte Homelab</div>
+                <div class="p-desc">Production self-hosted infrastructure: Proxmox hypervisor, TrueNAS storage, Ubuntu VMs, Docker/Portainer, Pi-hole, Nginx Proxy Manager, CrowdSec, Grafana, Prometheus, and a full Tailscale mesh.</div>
+                <div class="p-tags">
+                    <span class="tag">Proxmox</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">TrueNAS</span>
+                    <span class="tag">Grafana</span>
+                    <span class="tag">Tailscale</span>
+                    <span class="tag">CrowdSec</span>
+                </div>
+                <div class="p-foot">
+                    <span class="p-link">Self-hosted</span>
+                    <span class="p-arrow">↗</span>
+                </div>
+            </a>
+
         </div>
-    </section>
+    </div>
 
-    <!-- My Skill Section Start -->
-    <section class="skills" id="skills">
-        <div class="content">
-            <div class="title" data-aos="fade-up" data-aos-duration="1200"><span>My Skills</span></div>
-            <div class="skills-details">
-                <div class="text">
-                    <div class="topic" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">My Skills Reflect My Journey</div>
-                    <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="400">I've been building projects using different languages and tools, mostly focused on Python,
-                        Java, and web technologies like HTML, CSS, and a bit of JavaScript. A lot of my work comes from
-                        university coursework and personal projects where I try to apply what I learn in real scenarios,
-                        such as object-oriented design, data structures, basic networking, and automation scripts.</p>
-                    <div class="experience" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                        <div class="num">4+</div>
-                        <div class="exp">
-                            Years Of <br/>
-                            Coding Experience
-                        </div>
-                    </div>
-                </div>
-                <div class="boxes">
-                    <div class="box">
-                        <div class="topic" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="150">Python</div>
-                        <div class="per" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">85%</div>
-                    </div>
-                    <div class="box">
-                        <div class="topic" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="150">HTML & CSS</div>
-                        <div class="per" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">70%</div>
-                    </div>
-                    <div class="box">
-                        <div class="topic" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="450">Java</div>
-                        <div class="per" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">80%</div>
-                    </div>
-                    <div class="box">
-                        <div class="topic" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="450">Linux / Servers / CLI / Networking / Docker</div>
-                        <div class="per" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">85%</div>
-                    </div>
-                </div>
+    <!-- SERVICES -->
+    <div class="wrap ruled" id="services">
+
+        <div class="sec-label">03 / services</div>
+        <h2 class="sec-title">What I can do for you</h2>
+
+        <div class="svc-grid">
+
+            <div class="svc-item fu">
+                <span class="svc-icon">⚙️</span>
+                <div class="svc-name">Python Automation</div>
+                <div class="svc-desc">Automate repetitive tasks, file management, data processing, or system scripts. I write clean, documented Python that runs reliably.</div>
             </div>
-        </div>
-    </section>
 
-    <!-- My Services Section Start -->
-    <section class="services" id="services">
-        <div class="content">
-            <div class="title" data-aos="fade-up" data-aos-duration="1200"><span>My Services</span></div>
-            <div class="boxes">
-                <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-                    <div class="icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="topic">Python Automation</div>
-                    <p>I build practical tools that automate repetitive tasks, organize files, process data, or manage system configurations using Python.</p>
-                </div>
-                <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
-                    <div class="icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <div class="topic">Server Setup & Home-Lab Configuration</div>
-                    <p>I set up and configure Linux servers, Proxmox virtualization environments, TrueNAS storage solutions, and Docker containers.</p>
-                </div>
-                <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
-                    <div class="icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <div class="topic">Networking & System Troubleshooting</div>
-                    <p>I troubleshoot DNS issues, Nginx Proxy Manager configs, port forwarding, firewalls, Tailscale routing, and connectivity problems.</p>
-                </div>
-                <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
-                    <div class="icon">
-                        <i class="fas fa-diagram-project"></i>
-                    </div>
-                    <div class="topic">Java OOP Projects & System Design</div>
-                    <p>I have experience designing and implementing object-oriented applications in Java,
-                        following class diagrams and requirements similar to university projects and real assignments.</p>
-                </div>
-                <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
-                    <div class="icon">
-                        <i class="fas fa-bug"></i>
-                    </div>
-                    <div class="topic">Technical Problem-Solving</div>
-                    <p>I enjoy debugging, reading error messages, and figuring out why things don't work.
-                        Whether it's fixing code, configuration issues, or project structure problems,
-                        I like solving technical headaches.</p>
-                </div>
-                <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200">
-                    <div class="icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <div class="topic">Minecraft Server Hosting & Optimization</div>
-                    <p>I create, host, optimize, and troubleshoot Minecraft servers, plugins, performance issues, and networking setups</p>
-                </div>
+            <div class="svc-item fu">
+                <span class="svc-icon">🖥️</span>
+                <div class="svc-name">Server & Homelab Setup</div>
+                <div class="svc-desc">Linux server setup, Proxmox, Docker containers, TrueNAS, Nginx Proxy Manager, and monitoring stacks. I've built my own — I can build yours.</div>
             </div>
-        </div>
-    </section>
 
-    <!-- Contact Me section Start -->
-    <section class="contact" id="contact">
-        <div class="content">
-            <div class="title" data-aos="fade-up" data-aos-duration="1500"><span>Contact Me</span></div>
-            <div class="text">
-                <div class="topic" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Have a project, idea, or question?</div>
-                <p>Whether you want help on a project, need a simple website, or just want to talk about code,
-                    tech, or studies, feel free to reach out. I'm always open to collaborating, learning new things,
-                    and working on interesting problems.</p>
-                <div class="button" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400">
-                    <button onclick="location.href='mailto:dahop47@gmail.com'">Let's Chat</button>
-                </div>
+            <div class="svc-item fu">
+                <span class="svc-icon">🔐</span>
+                <div class="svc-name">Java OOP & System Design</div>
+                <div class="svc-desc">Design and implement object-oriented Java applications, from class diagrams through production implementation with proper patterns.</div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer Section Start -->
+            <div class="svc-item fu">
+                <span class="svc-icon">🌐</span>
+                <div class="svc-name">Networking & Troubleshooting</div>
+                <div class="svc-desc">DNS, Nginx configs, port forwarding, firewalls, VPN routing with Tailscale. I debug until it works.</div>
+            </div>
+
+            <div class="svc-item fu">
+                <span class="svc-icon">🧠</span>
+                <div class="svc-name">Technical Problem Solving</div>
+                <div class="svc-desc">Debugging, error analysis, architecture questions, or "why is this broken" — I find the root cause, not just the workaround.</div>
+            </div>
+            
+            <div class="svc-item fu">
+                <span class="svc-icon">🎮</span>
+                <div class="svc-name">Minecraft Server Setup</div>
+                <div class="svc-desc">Fabric/Spigot server config, plugin management, performance tuning, and networking. Running my own since 2020.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-wrap" id="contact">
+
+        <div class="c-label">04 / contact</div>
+        <h2 class="c-title">Let's build something</h2>
+        <p class="c-sub">Open to freelance projects, internships, and interesting problems.</p>
+
+        <a href="mailto:dahop47@gmail.com" class="c-email">dahop47@gmail.com</a>
+
+        <div class="c-links">
+            <a href="https://github.com/mcdahoomy" target="_blank" class="c-link">GitHub ↗</a>
+            <a href="Dahoomy-CV.pdf" class="c-link">Download CV ↗</a>
+        </div>
+
+        <p class="c-meta">Based in Qatar · Available remotely</p>
+
+    </div>
+
     <footer>
-        <div class="text">
-            <span>Created By <a href="#">Dahoomy</a> | &#169; 2026 All Rights Reserved</span>
-        </div>
+        <span>© 2026 Dahoomy</span>
+        <span class="footer-tag">FROSTBYTE SYSTEMS</span>
     </footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({offset:0});
-    </script>
-    <script src="script.js"></script>
+    <!-- JS file -->
+    <script src="js/script.js"></script>
 </body>
 </html>

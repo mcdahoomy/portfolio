@@ -1,0 +1,800 @@
+/* ── RESET & ROOT ── */
+
+/* Remove default browser margins/padding/box weirdness on every element */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Smooth scrolling when nav links are clicked */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ── CSS VARIABLES ── */
+:root {
+    /* Backgrounds ─ three shades of near-black */
+    --bg:       #080c10;
+    --bg2:      #0d1117;
+    --bg3:      #111820;
+    
+    /* Borders ─ green at very low opacity so they're subtle */
+    --border:       rgba(0, 255, 136, 0.12);
+    --border-hi:    rgba(0, 255, 136, 0.35);
+
+    /* The signature green accent */
+    --green:        #00ff88;
+    --green-dim:    rgba(0, 255, 136, 0.6);
+    --green-glow:   rgba(0, 255, 136, 0.08);
+
+    /* Text colors */
+    --text:     #c9d1d9;
+    --muted:    #6e7691;
+    --dim:      #3d4449;
+
+    /* Font families stored as variables */
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Syne', sans-serif;
+}
+
+/* ── BASE STYLES ── */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ── SCANLINE EFFECT ── */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.04) 2px,
+        rgba(0, 0, 0, 0.04) 4px
+    );
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hi); }
+
+/* ── NAV ── */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 48px;
+    background: rgba(8, 12, 16, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+/* The logo link — "dahoomy" in big green Syne font. */
+.nav-logo {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--green);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+}
+
+/* The "// frostbyte" part */
+.nav-logo span {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 8px;
+    font-family: var(--mono);
+}
+
+/* Remove the bullet points */
+nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+/* Each nav link */
+nav ul a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+/* Turn green on hover */
+nav ul a:hover {
+    color: var(--green);
+}
+
+/* —— HERO —— */
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* The green radial glow behind the text. */
+#home::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Subtle grid lines in the background. */
+#home::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+/* Left content block */
+.hero-content {
+    max-width: 640px;
+    position: relative;
+    z-index: 1;
+}
+
+/* The "Available for hire" tag above the name. */
+.hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-tag::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--green);
+}
+
+/* The big name heading. */
+.hero-name {
+    font-family: var(--sans);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+/* The green "rahman" part */
+.hero-name .accent {
+    color: var(--green);
+}
+
+/* The typewriter line */
+.hero-alias {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    min-height: 22px;
+}
+
+.hero-alias .prompt {
+    color: var(--green);
+    margin-right: 6px;
+}
+
+/* The short bio */
+.hero-desc {
+    font-size: 14px;
+    color: var(--text);
+    max-width: 480px;
+    line-height: 1.9;
+    margin-bottom: 48px;
+}
+
+/* <em> tags inside the bio turn green */
+.hero-desc em {
+    color: var(--green);
+    font-style: normal;
+}
+
+/* Button row */
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--green);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    clip-path: polygon(0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+    );
+}
+
+.btn-primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 255, 136, 0.25);
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--green);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border-hi);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: var(--green-glow);
+    border-color: var(--green);
+}
+
+/* —— TERMINAL WIDGET —— */
+
+.hero-terminal {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 340px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 12px;
+}
+
+/* The top bar with the three colored dots */
+.t-bar {
+    background: var(--bg3);
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* The three dots */
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot-r { background: #ff5f57; }
+.dot-y { background: #febc2e; }
+.dot-g { background: #28c840; }
+
+.t-title { color: var(--muted); font-size: 11px; margin-left: 6px; }
+
+/* The terminal text area */
+.t-body { padding: 16px; line-height: 2;}
+
+.t-line { display: flex; gap: 8px; }
+.t-p { color: var(--green); flex-shrink: 0; }
+.t-c { color: var(--text); }
+.t-o { color: var(--muted); padding-left: 16px; }
+.t-o.hi { color: var(--green-dim); }
+.t-gap { height: 8px; }
+
+/* The blinking cursor. */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: var(--green);
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+}
+
+/* Hide terminal on smaller screens */
+@media (max-width: 900px) {
+    .hero-terminal { display: none; }
+    #home { padding: 100px 24px 80px; }
+}
+
+/* ── SHARED SECTION STYLES ── */
+
+.wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px;
+}
+
+.ruled {
+    border-top: 1px solid var(--border);
+}
+
+/* Small uppercase label above each section title */
+.sec-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 120px;
+}
+
+/* The big section heading */
+.sec-title {
+    font-family: var(--sans);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin-bottom: 48px;
+}
+
+/* ── ABOUT ── */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* Paragraphs in the bio */
+.about-text p {
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.9;
+    font-size: 13px;
+}
+
+/* <em> tags in the bio */
+.about-text em {
+    color: var(--green);
+    font-style: normal;
+}
+
+/* 2x2 stat boxes */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 32px;
+}
+
+/* Each individual stat box */
+.stat-box {
+    background: var(--bg2);
+    padding: 20px;
+}
+
+.stat-num {
+    font-family: var(--sans);
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.stat-lbl {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+}
+
+/* ── SKILLS PANEL */
+
+.skills-panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 28px;
+}
+
+/* Each group of tags */
+.sk-group {
+    margin-bottom: 22px;
+}
+
+.sk-group:last-child {
+    margin-bottom: 0;
+}
+
+/* The group label */
+.sk-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sk-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* The row of tags */
+.sk-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Each individual skill tag */
+.sk-tag {
+    font-size: 11px;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    background: var(--bg3);
+    transition: all 0.15s;
+    letter-spacing: 0.02em;
+    cursor: default;
+}
+
+.sk-tag:hover {
+    border-color: var(--border-hi);
+    color: var(--green);
+    background: var(--green-glow);
+}
+
+/* ── FADE-UP ANIMATION ── */
+
+.fu {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fu.show {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .wrap { padding: 72px 24px }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ── PROJECTS ── */
+
+.proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+/* Each porject card */
+.proj-card {
+    background: var(--bg2);
+    padding: 28px;
+    position: relative;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+/* The green bar that slides in form the left on hover */
+.proj-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.proj-card:hover {
+    background: var(--bg3);
+}
+
+.proj-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Arrow moves when hovered */
+.proj-card:hover .p-arrow {
+    transform: translate(3px, -3px);
+    opacity: 1;
+}
+
+.p-num {
+    font-size: 11px;
+    color: var(--dim);
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+}
+
+.p-name {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.p-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.p-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+/* Individual tag pill */
+.tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1px solid var(--border-hi);
+    padding: 3px 8px;
+    background: var(--green-glow);
+}
+
+.p-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.p-link {
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.p-arrow {
+    color: var(--green);
+    font-size: 16px;
+    opacity: 0.4;
+    transition: all 0.2s;
+}
+
+/* —— SERVICES —— */
+
+.svc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.svc-item {
+    background: var(--bg2);
+    padding: 28px;
+    transition: background 0.2s;
+}
+
+.svc-item:hover {
+    background: var(--bg3);
+}
+
+.svc-icon {
+    font-size: 22px;
+    margin-bottom: 14px;
+    display: block;
+    line-height: 1;
+}
+
+.svc-name {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.svc-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.contact-wrap {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 100px 48px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.c-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.c-title {
+    font-family: var(--sans);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.c-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 40px;
+}
+
+.c-email {
+    font-family: var(--sans);
+    font-size: clamp(18px, 3vw, 30px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 40px;
+    display: block;
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: -0.02em;
+}
+
+.c-email:hover {
+    color: var(--green);
+}
+
+.c-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.c-link {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    transition: all 0.2s;
+}
+
+.c-link:hover {
+    color: var(--green);
+    border-color: var(--border-hi);
+    background: var(--green-glow);
+}
+
+.c-meta {
+    font-size: 11px;
+    color: var(--dim);
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--dim);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-tag {
+    color: var(--green);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+/* ── RESPONSIVE ─ final additions ── */
+@media (max-width: 900px) {
+    .contact-wrap { padding: 72px 24px; }
+    footer {
+        flex-direction: column;
+        gap: 8px;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav ul { gap: 18px; }
+    .hero-name { font-size: 44px; }
+}
