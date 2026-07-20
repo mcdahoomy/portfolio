@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dahoomy — CS Student & Developer</title>
+    <meta name="description" content="Abdulrahman Bakhit (Dahoomy) — CS student at Qatar University building CLI tools, web apps, and self-hosted infrastructure, moving toward cybersecurity. Open to freelance work and internships.">
+    <meta name="theme-color" content="#080c10">
+    <link rel="canonical" href="https://mcdahoomy.github.io/portfolio">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dahoomy — CS Student & Developer">
+    <meta property="og:description" content="CS student at Qatar University building CLI tools, web apps, and self-hosted infrastructure, moving toward cybersecurity.">
+    <meta property="og:url" content="https://mcdahoomy.github.io/portfolio">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Dahoomy — CS Student & Developer">
+    <meta name="twitter:description" content="CS student at Qatar University building CLI tools, web apps, and self-hosted infrastructure, moving toward cybersecurity.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Abdulrahman Bakhit",
+        "alternateName": "Dahoomy",
+        "url": "https://mcdahoomy.github.io/portfolio",
+        "sameAs": ["https://github.com/mcdahoomy"],
+        "jobTitle": "CS Student & Developer",
+        "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "Qatar University"
+        },
+        "email": "mailto:dahop47@gmail.com"
+    }
+    </script>
 
     <!-- Fonts from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
@@ -17,12 +51,17 @@
         <a href="#home" class="nav-logo">
             dahoomy<span>// frostbyte</span>
         </a>
-        <ul>
+        <ul id="navMenu">
             <li><a href="#about">about</a></li>
             <li><a href="#projects">projects</a></li>
             <li><a href="#services">services</a></li>
             <li><a href="#contact">contact</a></li>
         </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+        </button>
     </nav>
 
     <!-- HERO -->
@@ -166,7 +205,7 @@
                         <span class="sk-tag">Nginx</span>
                         <span class="sk-tag">Tailscale</span>
                         <span class="sk-tag">Pi-hole</span>
-                        <span class="sk-tag">Garfana</span>
+                        <span class="sk-tag">Grafana</span>
                         <span class="sk-tag">CrowdSec</span>
                     </div>
                 </div>
@@ -247,7 +286,7 @@
             <a class="proj-card fu" href="https://github.com/mcdahoomy/food-scanr" target="_blank">
                 <div class="p-num">04</div>
                 <div class="p-name">FoodScanr</div>
-                <div class="p-desc">Android nutrition scanner in Kotlin. Point at a barcode, get full nutritional data back — end-to-end mobile project with REST API integration an barcode parsing.</div>
+                <div class="p-desc">Android nutrition scanner in Kotlin. Point at a barcode, get full nutritional data back — end-to-end mobile project with REST API integration and barcode parsing.</div>
                 <div class="p-tags">
                     <span class="tag">Kotlin</span>
                     <span class="tag">Android</span>
@@ -255,7 +294,7 @@
                     <span class="tag">REST API</span>
                 </div>
                 <div class="p-foot">
-                    <span class="p-link">github.com/mcdahoomy/FoodScanr</span>
+                    <span class="p-link">github.com/mcdahoomy/food-scanr</span>
                     <span class="p-arrow">↗</span>
                 </div>
             </a>
@@ -387,7 +426,7 @@
 
         <div class="c-links">
             <a href="https://github.com/mcdahoomy" target="_blank" class="c-link">GitHub ↗</a>
-            <a href="Dahoomy-CV.pdf" class="c-link">Download CV ↗</a>
+            <a href="Dahoomy-CV.pdf" class="c-link" download="Dahoomy-CV.pdf">Download CV ↗</a>
         </div>
 
         <p class="c-meta">Based in Qatar · Available remotely</p>

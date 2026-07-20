@@ -1,3 +1,20 @@
+// ── MOBILE NAV TOGGLE ──
+
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+});
+
+navMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+    });
+});
+
 // ── SCROLL REVEAL ──
 
 const observer = new IntersectionObserver((entries) => {
@@ -22,7 +39,7 @@ const roles = [
     'CS student · developer · homelab operator',
     'Python · Java · Linux · Docker',
     'building towards cybersecurity',
-    'Frostbyte // Qatar University 2028'
+    'Frostbyte // Qatar University 2028–2029'
 ];
 
 const el = document.getElementById('alias');

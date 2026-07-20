@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mcdahoomy.github.io/portfolio/sitemap.xml
