@@ -164,7 +164,7 @@ nav ul a:hover {
         right: 0;
         flex-direction: column;
         gap: 0;
-        background: rgba(8, 12, 16, 0.98);
+        background: var(--bg2);
         border-bottom: 1px solid var(--border);
         max-height: 0;
         overflow: hidden;
